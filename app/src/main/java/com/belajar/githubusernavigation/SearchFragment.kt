@@ -1,6 +1,7 @@
 package com.belajar.githubusernavigation
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,25 +12,24 @@ import com.belajar.githubusernavigation.data.adapter.UserAdapter
 import com.belajar.githubusernavigation.data.response.ItemsItem
 import com.belajar.githubusernavigation.databinding.FragmentSearchBinding
 import com.belajar.githubusernavigation.ui.viewmodel.MainAndSearchViewModel
+import com.google.android.material.appbar.MaterialToolbar
 
 
 class SearchFragment : Fragment() {
-    private var _binding: FragmentSearchBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentSearchBinding
     private val viewModel: MainAndSearchViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         with(binding) {
             searchView.setupWithSearchBar(searchBar)
             searchView

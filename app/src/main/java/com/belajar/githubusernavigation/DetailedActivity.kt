@@ -28,11 +28,6 @@ import retrofit2.Response
 
 class DetailedActivity : AppCompatActivity() {
 
-    companion object {
-        @StringRes
-        private val SECTION_TITLE = intArrayOf(R.string.following, R.string.follower)
-    }
-
     private val viewModel: DetailedViewModel by viewModels()
     private lateinit var binding: ActivityDetailedBinding
 
@@ -40,8 +35,6 @@ class DetailedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailedBinding.inflate(layoutInflater)
-
-        enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.detail_main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -112,5 +105,9 @@ class DetailedActivity : AppCompatActivity() {
     private fun showLoading(value: Boolean) {
         if (value) binding.progressBar.visibility =
             View.VISIBLE else binding.progressBar.visibility = View.INVISIBLE
+    }
+    companion object {
+        @StringRes
+        private val SECTION_TITLE = intArrayOf(R.string.following, R.string.follower)
     }
 }

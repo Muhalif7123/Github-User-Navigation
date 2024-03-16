@@ -7,10 +7,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.belajar.githubusernavigation.FollowersFragment
 
 class SectionPageAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
-    companion object {
-        const val SECTION_NO = "section_no"
-    }
-
 
     override fun getItemCount(): Int = 2
 
@@ -24,5 +20,9 @@ class SectionPageAdapter(activity: AppCompatActivity) : FragmentStateAdapter(act
 
 
         return fragment
+    }
+
+    companion object {
+        const val SECTION_NO = "section_no"
     }
 }

@@ -16,15 +16,14 @@ import com.belajar.githubusernavigation.ui.viewmodel.DetailedViewModel
 
 
 class FollowersFragment : Fragment() {
-    private var _binding: FragmentFollowingsFollowersBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFollowingsFollowersBinding
     private lateinit var viewModel: DetailedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentFollowingsFollowersBinding.inflate(inflater, container, false)
+        binding = FragmentFollowingsFollowersBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }

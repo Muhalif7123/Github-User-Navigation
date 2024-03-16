@@ -9,14 +9,18 @@ android {
     namespace = "com.belajar.githubusernavigation"
     compileSdk = 34
 
+    buildFeatures.buildConfig = true
+
     defaultConfig {
         applicationId = "com.belajar.githubusernavigation"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "KEY", "\"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\"")
+        buildConfigField ("String", "BASE_URL", "\"https://api.github.com/\"")
+
     }
 
     buildTypes {
@@ -38,6 +42,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+
 }
 
 dependencies {

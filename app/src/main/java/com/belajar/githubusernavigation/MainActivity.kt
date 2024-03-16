@@ -21,24 +21,18 @@ import com.belajar.githubusernavigation.ui.viewmodel.MainAndSearchViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val TAG = "mainActivity"
-    }
-
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainAndSearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-
-        enableEdgeToEdge()
+        
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            v.paddingBottom
             insets
         }
 
@@ -52,13 +46,12 @@ class MainActivity : AppCompatActivity() {
                     val fragmentManager = supportFragmentManager
                     val searchFragment = SearchFragment()
                     fragmentManager.commit {
-                        addToBackStack(TAG)
-                        replace(
+                        addToBackStack(null)
+                        add(
                             R.id.fragment_container,
                             searchFragment,
                             SearchFragment::class.java.simpleName
                         )
-                        binding.rvContainer.visibility = View.GONE
                     }
                     true
                 }
@@ -100,5 +93,9 @@ class MainActivity : AppCompatActivity() {
     private fun showLoading(value: Boolean) {
         if (value) binding.progressBar.visibility =
             View.VISIBLE else binding.progressBar.visibility = View.INVISIBLE
+    }
+
+    companion object {
+        const val TAG = "mainActivity"
     }
 }
