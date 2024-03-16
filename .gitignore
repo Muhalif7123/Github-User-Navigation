@@ -1,5 +1,6 @@
 *.iml
 .gradle
+build.gradle.kts
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -10,7 +11,8 @@
 .DS_Store
 /build
 /captures
-/build.gradle.kts
+/app
+settings.gradle.kts
 .externalNativeBuild
 .cxx
 local.properties
